@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+
+<html class="w-full h-full overflow-hidden" lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>我的 · 全网酒店比价</title>
+<script src="https://modao.cc/agent-py/static/source/js/tailwindcss.js"></script>
+<script src="https://modao.cc/agent-py/static/source/js/iconify-icon.min.js"></script>
+<style>
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; }
+  .no-bar { scrollbar-width: none; -ms-overflow-style: none; }
+  .no-bar::-webkit-scrollbar { display: none; width: 0; height: 0; }
+</style>
+</head>
+<body class="w-full h-full m-0 overflow-hidden flex items-center justify-center bg-slate-100">
+<div class="w-full h-full max-w-[393px] max-h-[852px] bg-[#F4F8FF] flex flex-col overflow-hidden relative">
+<main class="flex-1 min-h-0 overflow-y-auto overflow-x-hidden no-bar px-4 pt-4 pb-4">
+<!-- 用户卡 -->
+<section class="relative overflow-hidden bg-gradient-to-br from-sky-400 to-cyan-400 rounded-3xl p-4 text-white shadow-[0_18px_34px_-18px_rgba(56,189,248,0.95)]">
+<div class="absolute -right-8 -top-10 w-28 h-28 rounded-full bg-white/15"></div>
+<div class="absolute right-10 top-12 w-16 h-16 rounded-full bg-white/10"></div>
+<div class="relative flex items-center gap-3">
+<div class="w-14 h-14 rounded-2xl bg-white/25 backdrop-blur flex items-center justify-center text-xl font-bold ring-1 ring-white/40">旅</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-2">
+<h1 class="text-[16px] font-bold">林小满</h1>
+<span class="text-[10px] bg-white/25 px-2 py-0.5 rounded-full">白金比价会员</span>
+</div>
+<p class="text-[11px] opacity-85 mt-1">已用比价 86 次 · 会员有效期至 2027-03-18</p>
+</div>
+<button class="shrink-0 text-[11px] font-medium bg-white text-sky-600 px-3 py-1.5 rounded-full" onclick="showToast('会员中心正在维护，请稍后再试')">会员中心</button>
+</div>
+<div class="relative grid grid-cols-3 gap-2 mt-4 text-center">
+<div class="bg-white/15 rounded-2xl py-2">
+<p class="text-base font-bold">12</p>
+<p class="text-[10px] opacity-85">收藏酒店</p>
+</div>
+<div class="bg-white/15 rounded-2xl py-2">
+<p class="text-base font-bold">86</p>
+<p class="text-[10px] opacity-85">累计比价</p>
+</div>
+<div class="bg-white/15 rounded-2xl py-2">
+<p class="text-base font-bold">¥2,430</p>
+<p class="text-[10px] opacity-85">已省金额</p>
+</div>
+</div>
+</section>
+<!-- 常用入口 -->
+<section class="mt-4 bg-white rounded-3xl p-4 ring-1 ring-slate-100 shadow-[0_14px_30px_-24px_rgba(56,140,255,0.9)]">
+<div class="flex items-center justify-between">
+<h2 class="text-[14px] font-bold text-slate-800">我的出行工具</h2>
+<span class="text-[11px] text-slate-400">长按可排序</span>
+</div>
+<div class="grid grid-cols-4 gap-2 mt-3.5">
+<button class="flex flex-col items-center gap-1.5 py-1" onclick="showToast('打开我的收藏')">
+<span class="w-10 h-10 rounded-2xl bg-sky-50 text-sky-500 flex items-center justify-center">
+<iconify-icon class="text-xl" icon="mdi:heart-outline"></iconify-icon>
+</span>
+<span class="text-[11px] text-slate-600">我的收藏</span>
+</button>
+<button class="flex flex-col items-center gap-1.5 py-1" onclick="showToast('降价提醒已开启 6 家酒店')">
+<span class="w-10 h-10 rounded-2xl bg-cyan-50 text-cyan-500 flex items-center justify-center">
+<iconify-icon class="text-xl" icon="mdi:bell-ring-outline"></iconify-icon>
+</span>
+<span class="text-[11px] text-slate-600">降价提醒</span>
+</button>
+<button class="flex flex-col items-center gap-1.5 py-1" onclick="showToast('你有 3 张平台比价券可用')">
+<span class="w-10 h-10 rounded-2xl bg-amber-50 text-amber-500 flex items-center justify-center">
+<iconify-icon class="text-xl" icon="mdi:ticket-percent-outline"></iconify-icon>
+</span>
+<span class="text-[11px] text-slate-600">优惠券</span>
+</button>
+<button class="flex flex-col items-center gap-1.5 py-1" onclick="showToast('已保存 2 位常用旅客信息')">
+<span class="w-10 h-10 rounded-2xl bg-emerald-50 text-emerald-500 flex items-center justify-center">
+<iconify-icon class="text-xl" icon="mdi:account-multiple-outline"></iconify-icon>
+</span>
+<span class="text-[11px] text-slate-600">常用旅客</span>
+</button>
+</div>
+</section>
+<!-- 最近比价记录 -->
+<section class="mt-4 bg-white rounded-3xl p-4 ring-1 ring-slate-100 shadow-[0_14px_30px_-24px_rgba(56,140,255,0.9)]">
+<div class="flex items-center justify-between">
+<h2 class="text-[14px] font-bold text-slate-800">最近比价</h2>
+<a class="text-[11px] text-sky-600 font-medium" href="home.html">继续搜索</a>
+</div>
+<div class="mt-3 space-y-3">
+<div class="flex items-center gap-3">
+<span class="w-9 h-9 rounded-xl bg-sky-50 text-sky-500 flex items-center justify-center shrink-0">
+<iconify-icon class="text-base" icon="mdi:magnify"></iconify-icon>
+</span>
+<div class="flex-1 min-w-0">
+<p class="text-[12px] font-medium text-slate-700 truncate">上海 · 外滩 · 10月15日 1 晚</p>
+<p class="text-[10px] text-slate-400 mt-0.5">对比 6 个平台 · 最低 ¥318</p>
+</div>
+<span class="text-[10px] text-slate-400">今天</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="w-9 h-9 rounded-xl bg-cyan-50 text-cyan-500 flex items-center justify-center shrink-0">
+<iconify-icon class="text-base" icon="mdi:magnify"></iconify-icon>
+</span>
+<div class="flex-1 min-w-0">
+<p class="text-[12px] font-medium text-slate-700 truncate">朱家角古镇 · 10月17日 2 晚</p>
+<p class="text-[10px] text-slate-400 mt-0.5">对比 6 个平台 · 最低 ¥498</p>
+</div>
+<span class="text-[10px] text-slate-400">昨天</span>
+</div>
+</div>
+</section>
+<!-- 设置列表 -->
+<section class="mt-4 bg-white rounded-3xl ring-1 ring-slate-100 overflow-hidden shadow-[0_14px_30px_-24px_rgba(56,140,255,0.9)]">
+<button class="w-full flex items-center justify-between px-4 py-3.5" onclick="showToast('客服在线时间 09:00 - 22:00')">
+<span class="flex items-center gap-3">
+<iconify-icon class="text-lg text-sky-500" icon="mdi:headset"></iconify-icon>
+<span class="text-[13px] text-slate-700">比价客服</span>
+</span>
+<iconify-icon class="text-slate-300" icon="mdi:chevron-right"></iconify-icon>
+</button>
+<div class="h-px bg-slate-100 ml-4"></div>
+<button class="w-full flex items-center justify-between px-4 py-3.5" onclick="showToast('已开启价格波动推送')">
+<span class="flex items-center gap-3">
+<iconify-icon class="text-lg text-sky-500" icon="mdi:bell-outline"></iconify-icon>
+<span class="text-[13px] text-slate-700">消息通知</span>
+</span>
+<span class="flex items-center gap-1 text-[11px] text-slate-400">已开启
+          <iconify-icon class="text-slate-300" icon="mdi:chevron-right"></iconify-icon>
+</span>
+</button>
+<div class="h-px bg-slate-100 ml-4"></div>
+<button class="w-full flex items-center justify-between px-4 py-3.5" onclick="showToast('已清除 128MB 缓存')">
+<span class="flex items-center gap-3">
+<iconify-icon class="text-lg text-sky-500" icon="mdi:broom"></iconify-icon>
+<span class="text-[13px] text-slate-700">清理缓存</span>
+</span>
+<span class="flex items-center gap-1 text-[11px] text-slate-400">128MB
+          <iconify-icon class="text-slate-300" icon="mdi:chevron-right"></iconify-icon>
+</span>
+</button>
+<div class="h-px bg-slate-100 ml-4"></div>
+<button class="w-full flex items-center justify-between px-4 py-3.5" onclick="showToast('全网酒店比价 v2.4.1')">
+<span class="flex items-center gap-3">
+<iconify-icon class="text-lg text-sky-500" icon="mdi:information-outline"></iconify-icon>
+<span class="text-[13px] text-slate-700">关于我们</span>
+</span>
+<span class="flex items-center gap-1 text-[11px] text-slate-400">v2.4.1
+          <iconify-icon class="text-slate-300" icon="mdi:chevron-right"></iconify-icon>
+</span>
+</button>
+</section>
+<p class="text-center text-[10px] text-slate-300 mt-4">价格数据来自携程 · 美团 · 飞猪 · Booking · Agoda · 同程</p>
+</main>
+<nav class="shrink-0 bg-white border-t border-slate-100 px-2 pt-2 pb-3 grid grid-cols-4">
+<a class="flex flex-col items-center gap-0.5 text-slate-400" href="home.html">
+<iconify-icon class="text-xl" icon="mdi:home-variant-outline"></iconify-icon>
+<span class="text-[10px]">首页</span>
+</a>
+<a class="flex flex-col items-center gap-0.5 text-slate-400" href="favorites.html">
+<iconify-icon class="text-xl" icon="mdi:heart-outline"></iconify-icon>
+<span class="text-[10px]">比价收藏</span>
+</a>
+<a class="flex flex-col items-center gap-0.5 text-slate-400" href="orders.html">
+<iconify-icon class="text-xl" icon="mdi:clipboard-text-outline"></iconify-icon>
+<span class="text-[10px]">订单</span>
+</a>
+<a class="flex flex-col items-center gap-0.5 text-sky-500" href="profile.html">
+<iconify-icon class="text-xl" icon="mdi:account"></iconify-icon>
+<span class="text-[10px] font-semibold">我的</span>
+</a>
+</nav>
+<div class="hidden absolute left-1/2 -translate-x-1/2 bottom-28 z-40 bg-slate-800/90 text-white text-[12px] px-4 py-2 rounded-full whitespace-nowrap" id="toast"></div>
+</div>
+<script>
+  function showToast(text) {
+    var toast = document.getElementById("toast");
+    toast.textContent = text;
+    toast.classList.remove("hidden");
+    clearTimeout(showToast.timer);
+    showToast.timer = setTimeout(function () {
+      toast.classList.add("hidden");
+    }, 1700);
+  }
+</script>
+</body>
+</html>

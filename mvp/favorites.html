@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+
+<html class="w-full h-full overflow-hidden" lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>比价收藏 · 全网酒店比价</title>
+<script src="https://modao.cc/agent-py/static/source/js/tailwindcss.js"></script>
+<script src="https://modao.cc/agent-py/static/source/js/iconify-icon.min.js"></script>
+<style>
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; }
+  .no-bar { scrollbar-width: none; -ms-overflow-style: none; }
+  .no-bar::-webkit-scrollbar { display: none; width: 0; height: 0; }
+</style>
+</head>
+<body class="w-full h-full m-0 overflow-hidden flex items-center justify-center bg-slate-100">
+<div class="w-full h-full max-w-[393px] max-h-[852px] bg-[#F4F8FF] flex flex-col overflow-hidden relative">
+<!-- 顶部栏 -->
+<header class="shrink-0 px-4 pt-4 pb-2">
+<div class="flex items-center justify-between">
+<h1 class="text-[19px] font-bold text-slate-800">比价收藏</h1>
+<button class="text-[12px] text-sky-600 font-medium" onclick="showToast('已按最低价重新排序')">刷新价格</button>
+</div>
+<p class="text-[11px] text-slate-400 mt-1">降价自动提醒 · 每天 09:00 更新一次</p>
+</header>
+<main class="flex-1 min-h-0 overflow-y-auto overflow-x-hidden no-bar px-4 pb-4">
+<!-- 概览 -->
+<section class="bg-gradient-to-br from-sky-400 to-cyan-400 rounded-3xl p-4 text-white shadow-[0_16px_30px_-18px_rgba(56,189,248,0.9)]">
+<div class="flex items-center justify-between">
+<div>
+<p class="text-[11px] opacity-85">累计为你省下</p>
+<p class="text-[26px] font-bold leading-tight">¥1,286</p>
+</div>
+<iconify-icon class="text-3xl opacity-70" icon="mdi:trending-down"></iconify-icon>
+</div>
+<div class="grid grid-cols-3 gap-2 mt-4 text-center">
+<div class="bg-white/15 rounded-2xl py-2">
+<p class="text-base font-bold">12</p>
+<p class="text-[10px] opacity-85">收藏酒店</p>
+</div>
+<div class="bg-white/15 rounded-2xl py-2">
+<p class="text-base font-bold">8</p>
+<p class="text-[10px] opacity-85">正在降价</p>
+</div>
+<div class="bg-white/15 rounded-2xl py-2">
+<p class="text-base font-bold">6</p>
+<p class="text-[10px] opacity-85">已开提醒</p>
+</div>
+</div>
+</section>
+<!-- 筛选标签 -->
+<div class="mt-4 flex items-center gap-2">
+<button class="fav-tab h-8 px-3.5 rounded-full text-[12px] font-medium bg-sky-500 text-white" data-fav-tab="all">全部</button>
+<button class="fav-tab h-8 px-3.5 rounded-full text-[12px] font-medium bg-white text-slate-500 ring-1 ring-slate-100" data-fav-tab="drop">已降价</button>
+<button class="fav-tab h-8 px-3.5 rounded-full text-[12px] font-medium bg-white text-slate-500 ring-1 ring-slate-100" data-fav-tab="hotel">酒店</button>
+<button class="fav-tab h-8 px-3.5 rounded-full text-[12px] font-medium bg-white text-slate-500 ring-1 ring-slate-100" data-fav-tab="homestay">民宿</button>
+<button class="fav-tab h-8 px-3.5 rounded-full text-[12px] font-medium bg-white text-slate-500 ring-1 ring-slate-100" data-fav-tab="apartment">公寓</button>
+</div>
+<div class="mt-3.5 space-y-3.5" id="favList">
+<article class="fav-card bg-white rounded-3xl p-3 ring-1 ring-slate-100 shadow-[0_16px_30px_-24px_rgba(56,140,255,0.9)]" data-drop="1" data-fav-cat="hotel">
+<div class="flex gap-3">
+<div class="relative w-[92px] h-[92px] shrink-0 rounded-2xl overflow-hidden bg-gradient-to-br from-sky-100 to-cyan-50">
+<img alt="Riverside hotel room with large window facing the Bund" class="w-full h-full object-cover" src="https://modao.cc/agent-py/media/generated_images/2026-10-15/6c297234ad5e4127a1b11b626fccbea7.jpg"/>
+<span class="absolute bottom-1 left-1 text-[9px] text-white bg-orange-500/95 px-1.5 py-[1px] rounded-full">降 ¥84</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-start justify-between gap-2">
+<h3 class="text-[14px] font-bold text-slate-800 truncate">外滩璟悦江景酒店</h3>
+<button class="shrink-0 text-slate-300" onclick="removeFav(this)">
+<iconify-icon class="text-base" icon="mdi:trash-can-outline"></iconify-icon>
+</button>
+</div>
+<div class="flex items-center gap-1.5 mt-1">
+<span class="bg-sky-500 text-white text-[10px] font-bold px-1.5 py-[1px] rounded">4.8</span>
+<span class="text-[10px] text-slate-400">超棒 · 江景房</span>
+</div>
+<div class="mt-2 flex items-center gap-1.5 text-[10px]">
+<span class="text-slate-500 bg-slate-50 px-1.5 py-0.5 rounded-full">10月15日 - 10月16日</span>
+<span class="text-slate-500 bg-slate-50 px-1.5 py-0.5 rounded-full">1 晚</span>
+</div>
+<div class="flex items-end justify-between mt-2">
+<p class="text-orange-500 font-bold text-lg leading-none">¥428<span class="text-[10px] font-normal text-slate-400"> 起</span></p>
+<span class="text-[10px] text-slate-400 line-through">¥512</span>
+</div>
+</div>
+</div>
+<div class="mt-2.5 pt-2.5 border-t border-slate-100 flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="text-[10px] text-white bg-orange-500 px-1.5 py-[1px] rounded-full">美团 最低</span>
+<span class="text-[10px] text-slate-400">携程 ¥458 · 飞猪 ¥469 · Booking ¥512</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="text-[11px] font-medium text-sky-600 bg-sky-50 px-2.5 py-1 rounded-full" onclick="toggleRemind(this)">降价提醒</button>
+<button class="text-[11px] font-semibold text-white bg-gradient-to-r from-sky-400 to-cyan-400 px-3 py-1 rounded-full" onclick="showToast('正在跳转比价详情…')">去下单</button>
+</div>
+</div>
+</article>
+<article class="fav-card bg-white rounded-3xl p-3 ring-1 ring-slate-100 shadow-[0_16px_30px_-24px_rgba(56,140,255,0.9)]" data-drop="1" data-fav-cat="hotel">
+<div class="flex gap-3">
+<div class="relative w-[92px] h-[92px] shrink-0 rounded-2xl overflow-hidden bg-gradient-to-br from-cyan-100 to-sky-50">
+<img alt="Boutique hotel room with wood desk near Jing an Temple" class="w-full h-full object-cover" src="https://modao.cc/agent-py/media/generated_images/2026-10-15/06f0d005662f4d02a0698cb6f9bcfaaa.jpg"/>
+<span class="absolute bottom-1 left-1 text-[9px] text-white bg-orange-500/95 px-1.5 py-[1px] rounded-full">降 ¥31</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-start justify-between gap-2">
+<h3 class="text-[14px] font-bold text-slate-800 truncate">静安香颂精品酒店</h3>
+<button class="shrink-0 text-slate-300" onclick="removeFav(this)">
+<iconify-icon class="text-base" icon="mdi:trash-can-outline"></iconify-icon>
+</button>
+</div>
+<div class="flex items-center gap-1.5 mt-1">
+<span class="bg-sky-500 text-white text-[10px] font-bold px-1.5 py-[1px] rounded">4.6</span>
+<span class="text-[10px] text-slate-400">很好 · 大床房</span>
+</div>
+<div class="mt-2 flex items-center gap-1.5 text-[10px]">
+<span class="text-slate-500 bg-slate-50 px-1.5 py-0.5 rounded-full">10月16日 - 10月17日</span>
+<span class="text-slate-500 bg-slate-50 px-1.5 py-0.5 rounded-full">1 晚</span>
+</div>
+<div class="flex items-end justify-between mt-2">
+<p class="text-orange-500 font-bold text-lg leading-none">¥318<span class="text-[10px] font-normal text-slate-400"> 起</span></p>
+<span class="text-[10px] text-slate-400 line-through">¥349</span>
+</div>
+</div>
+</div>
+<div class="mt-2.5 pt-2.5 border-t border-slate-100 flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="text-[10px] text-white bg-orange-500 px-1.5 py-[1px] rounded-full">飞猪 最低</span>
+<span class="text-[10px] text-slate-400">携程 ¥328 · 美团 ¥345 · Booking ¥389</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="text-[11px] font-medium text-sky-600 bg-sky-50 px-2.5 py-1 rounded-full" onclick="toggleRemind(this)">降价提醒</button>
+<button class="text-[11px] font-semibold text-white bg-gradient-to-r from-sky-400 to-cyan-400 px-3 py-1 rounded-full" onclick="showToast('正在跳转比价详情…')">去下单</button>
+</div>
+</div>
+</article>
+<article class="fav-card bg-white rounded-3xl p-3 ring-1 ring-slate-100 shadow-[0_16px_30px_-24px_rgba(56,140,255,0.9)]" data-drop="1" data-fav-cat="homestay">
+<div class="flex gap-3">
+<div class="relative w-[92px] h-[92px] shrink-0 rounded-2xl overflow-hidden bg-gradient-to-br from-cyan-100 to-sky-50">
+<img alt="Old lane house homestay courtyard with wooden shutters" class="w-full h-full object-cover" src="https://modao.cc/agent-py/media/generated_images/2026-10-15/2cd1201fffda4eef8ac7d554fa685b79.jpg"/>
+<span class="absolute bottom-1 left-1 text-[9px] text-white bg-orange-500/95 px-1.5 py-[1px] rounded-full">降 ¥26</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-start justify-between gap-2">
+<h3 class="text-[14px] font-bold text-slate-800 truncate">田子坊里弄民宿</h3>
+<button class="shrink-0 text-slate-300" onclick="removeFav(this)">
+<iconify-icon class="text-base" icon="mdi:trash-can-outline"></iconify-icon>
+</button>
+</div>
+<div class="flex items-center gap-1.5 mt-1">
+<span class="bg-sky-500 text-white text-[10px] font-bold px-1.5 py-[1px] rounded">4.7</span>
+<span class="text-[10px] text-slate-400">超棒 · 独立庭院</span>
+</div>
+<div class="mt-2 flex items-center gap-1.5 text-[10px]">
+<span class="text-slate-500 bg-slate-50 px-1.5 py-0.5 rounded-full">10月17日 - 10月19日</span>
+<span class="text-slate-500 bg-slate-50 px-1.5 py-0.5 rounded-full">2 晚</span>
+</div>
+<div class="flex items-end justify-between mt-2">
+<p class="text-orange-500 font-bold text-lg leading-none">¥352<span class="text-[10px] font-normal text-slate-400"> 起</span></p>
+<span class="text-[10px] text-slate-400 line-through">¥378</span>
+</div>
+</div>
+</div>
+<div class="mt-2.5 pt-2.5 border-t border-slate-100 flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="text-[10px] text-white bg-orange-500 px-1.5 py-[1px] rounded-full">美团 最低</span>
+<span class="text-[10px] text-slate-400">携程 ¥368 · 飞猪 ¥379 · Booking ¥405</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="text-[11px] font-medium text-sky-600 bg-sky-50 px-2.5 py-1 rounded-full" onclick="toggleRemind(this)">降价提醒</button>
+<button class="text-[11px] font-semibold text-white bg-gradient-to-r from-sky-400 to-cyan-400 px-3 py-1 rounded-full" onclick="showToast('正在跳转比价详情…')">去下单</button>
+</div>
+</div>
+</article>
+<article class="fav-card bg-white rounded-3xl p-3 ring-1 ring-slate-100 shadow-[0_16px_30px_-24px_rgba(56,140,255,0.9)]" data-drop="0" data-fav-cat="hotel">
+<div class="flex gap-3">
+<div class="relative w-[92px] h-[92px] shrink-0 rounded-2xl overflow-hidden bg-gradient-to-br from-sky-200 to-sky-50">
+<img alt="Executive suite on high floor overlooking Lujiazui skyscrapers" class="w-full h-full object-cover" src="https://modao.cc/agent-py/media/generated_images/2026-10-15/930c100b536948c2bc3d8c22dcebd29c.jpg"/>
+<span class="absolute bottom-1 left-1 text-[9px] text-slate-600 bg-white/90 px-1.5 py-[1px] rounded-full">价格持平</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-start justify-between gap-2">
+<h3 class="text-[14px] font-bold text-slate-800 truncate">陆家嘴云顶行政酒店</h3>
+<button class="shrink-0 text-slate-300" onclick="removeFav(this)">
+<iconify-icon class="text-base" icon="mdi:trash-can-outline"></iconify-icon>
+</button>
+</div>
+<div class="flex items-center gap-1.5 mt-1">
+<span class="bg-sky-500 text-white text-[10px] font-bold px-1.5 py-[1px] rounded">4.9</span>
+<span class="text-[10px] text-slate-400">无可挑剔 · 行政楼层</span>
+</div>
+<div class="mt-2 flex items-center gap-1.5 text-[10px]">
+<span class="text-slate-500 bg-slate-50 px-1.5 py-0.5 rounded-full">10月15日 - 10月16日</span>
+<span class="text-slate-500 bg-slate-50 px-1.5 py-0.5 rounded-full">1 晚</span>
+</div>
+<div class="flex items-end justify-between mt-2">
+<p class="text-orange-500 font-bold text-lg leading-none">¥742<span class="text-[10px] font-normal text-slate-400"> 起</span></p>
+<span class="text-[10px] text-slate-400">30 天最低</span>
+</div>
+</div>
+</div>
+<div class="mt-2.5 pt-2.5 border-t border-slate-100 flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="text-[10px] text-white bg-orange-500 px-1.5 py-[1px] rounded-full">美团 最低</span>
+<span class="text-[10px] text-slate-400">携程 ¥766 · 飞猪 ¥798 · Booking ¥815</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="text-[11px] font-medium text-sky-600 bg-sky-50 px-2.5 py-1 rounded-full" onclick="toggleRemind(this)">降价提醒</button>
+<button class="text-[11px] font-semibold text-white bg-gradient-to-r from-sky-400 to-cyan-400 px-3 py-1 rounded-full" onclick="showToast('正在跳转比价详情…')">去下单</button>
+</div>
+</div>
+</article>
+<article class="fav-card bg-white rounded-3xl p-3 ring-1 ring-slate-100 shadow-[0_16px_30px_-24px_rgba(56,140,255,0.9)]" data-drop="0" data-fav-cat="apartment">
+<div class="flex gap-3">
+<div class="relative w-[92px] h-[92px] shrink-0 rounded-2xl overflow-hidden bg-gradient-to-br from-cyan-50 to-sky-50">
+<img alt="Two bedroom serviced apartment with open kitchen and city view" class="w-full h-full object-cover" src="https://modao.cc/agent-py/media/generated_images/2026-10-15/11d40551bb1f4703b71ff62cb0450867.jpg"/>
+<span class="absolute bottom-1 left-1 text-[9px] text-slate-600 bg-white/90 px-1.5 py-[1px] rounded-full">价格持平</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-start justify-between gap-2">
+<h3 class="text-[14px] font-bold text-slate-800 truncate">陆家嘴塔景服务公寓</h3>
+<button class="shrink-0 text-slate-300" onclick="removeFav(this)">
+<iconify-icon class="text-base" icon="mdi:trash-can-outline"></iconify-icon>
+</button>
+</div>
+<div class="flex items-center gap-1.5 mt-1">
+<span class="bg-sky-500 text-white text-[10px] font-bold px-1.5 py-[1px] rounded">4.6</span>
+<span class="text-[10px] text-slate-400">很好 · 两室一厅</span>
+</div>
+<div class="mt-2 flex items-center gap-1.5 text-[10px]">
+<span class="text-slate-500 bg-slate-50 px-1.5 py-0.5 rounded-full">10月19日 - 10月20日</span>
+<span class="text-slate-500 bg-slate-50 px-1.5 py-0.5 rounded-full">1 晚</span>
+</div>
+<div class="flex items-end justify-between mt-2">
+<p class="text-orange-500 font-bold text-lg leading-none">¥588<span class="text-[10px] font-normal text-slate-400"> 起</span></p>
+<span class="text-[10px] text-slate-400">长租可议</span>
+</div>
+</div>
+</div>
+<div class="mt-2.5 pt-2.5 border-t border-slate-100 flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="text-[10px] text-white bg-orange-500 px-1.5 py-[1px] rounded-full">美团 最低</span>
+<span class="text-[10px] text-slate-400">携程 ¥612 · 飞猪 ¥625 · Booking ¥648</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="text-[11px] font-medium text-sky-600 bg-sky-50 px-2.5 py-1 rounded-full" onclick="toggleRemind(this)">降价提醒</button>
+<button class="text-[11px] font-semibold text-white bg-gradient-to-r from-sky-400 to-cyan-400 px-3 py-1 rounded-full" onclick="showToast('正在跳转比价详情…')">去下单</button>
+</div>
+</div>
+</article>
+<div class="hidden text-center py-14" id="favEmpty">
+<div class="w-16 h-16 rounded-full bg-white mx-auto flex items-center justify-center text-slate-300 ring-1 ring-slate-100">
+<iconify-icon class="text-3xl" icon="mdi:heart-outline"></iconify-icon>
+</div>
+<p class="mt-3 text-[13px] text-slate-500">还没有符合条件的收藏</p>
+<a class="inline-block mt-3 text-[12px] font-semibold text-white bg-gradient-to-r from-sky-400 to-cyan-400 px-5 py-2 rounded-full" href="home.html">去首页比价</a>
+</div>
+</div>
+</main>
+<!-- 底部 Tab 栏 -->
+<nav class="shrink-0 bg-white border-t border-slate-100 px-2 pt-2 pb-3 grid grid-cols-4">
+<a class="flex flex-col items-center gap-0.5 text-slate-400" href="home.html">
+<iconify-icon class="text-xl" icon="mdi:home-variant-outline"></iconify-icon>
+<span class="text-[10px]">首页</span>
+</a>
+<a class="flex flex-col items-center gap-0.5 text-sky-500" href="favorites.html">
+<iconify-icon class="text-xl" icon="mdi:heart"></iconify-icon>
+<span class="text-[10px] font-semibold">比价收藏</span>
+</a>
+<a class="flex flex-col items-center gap-0.5 text-slate-400" href="orders.html">
+<iconify-icon class="text-xl" icon="mdi:clipboard-text-outline"></iconify-icon>
+<span class="text-[10px]">订单</span>
+</a>
+<a class="flex flex-col items-center gap-0.5 text-slate-400" href="profile.html">
+<iconify-icon class="text-xl" icon="mdi:account-outline"></iconify-icon>
+<span class="text-[10px]">我的</span>
+</a>
+</nav>
+<div class="hidden absolute left-1/2 -translate-x-1/2 bottom-28 z-40 bg-slate-800/90 text-white text-[12px] px-4 py-2 rounded-full whitespace-nowrap" id="toast"></div>
+</div>
+<script>
+  function showToast(text) {
+    var toast = document.getElementById("toast");
+    toast.textContent = text;
+    toast.classList.remove("hidden");
+    clearTimeout(showToast.timer);
+    showToast.timer = setTimeout(function () {
+      toast.classList.add("hidden");
+    }, 1600);
+  }
+
+  function bindTabs() {
+    var tabs = document.querySelectorAll(".fav-tab");
+    tabs.forEach(function (tab) {
+      tab.addEventListener("click", function () {
+        tabs.forEach(function (other) {
+          other.classList.remove("bg-sky-500", "text-white");
+          other.classList.add("bg-white", "text-slate-500", "ring-1", "ring-slate-100");
+        });
+        tab.classList.remove("bg-white", "text-slate-500", "ring-1", "ring-slate-100");
+        tab.classList.add("bg-sky-500", "text-white");
+        applyFilter(tab.getAttribute("data-fav-tab"));
+      });
+    });
+  }
+
+  function applyFilter(key) {
+    var cards = document.querySelectorAll(".fav-card");
+    var shown = 0;
+    cards.forEach(function (card) {
+      var match = true;
+      if (key === "drop") {
+        match = card.getAttribute("data-drop") === "1";
+      } else if (key !== "all") {
+        match = card.getAttribute("data-fav-cat") === key;
+      }
+      card.classList.toggle("hidden", !match);
+      if (match) {
+        shown++;
+      }
+    });
+    document.getElementById("favEmpty").classList.toggle("hidden", shown > 0);
+  }
+
+  function toggleRemind(btn) {
+    var on = btn.classList.toggle("is-on");
+    btn.textContent = on ? "已开提醒" : "降价提醒";
+    btn.classList.toggle("bg-sky-500", on);
+    btn.classList.toggle("text-white", on);
+    btn.classList.toggle("bg-sky-50", !on);
+    btn.classList.toggle("text-sky-600", !on);
+    showToast(on ? "降价后将推送提醒给你" : "已关闭该酒店提醒");
+  }
+
+  function removeFav(btn) {
+    var card = btn.closest(".fav-card");
+    card.classList.add("hidden");
+    showToast("已从比价收藏中移除");
+  }
+
+  bindTabs();
+</script>
+</body>
+</html>

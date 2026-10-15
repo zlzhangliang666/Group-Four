@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+
+<html class="w-full h-full overflow-hidden" lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>我的订单 · 全网酒店比价</title>
+<script src="https://modao.cc/agent-py/static/source/js/tailwindcss.js"></script>
+<script src="https://modao.cc/agent-py/static/source/js/iconify-icon.min.js"></script>
+<style>
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; }
+  .no-bar { scrollbar-width: none; -ms-overflow-style: none; }
+  .no-bar::-webkit-scrollbar { display: none; width: 0; height: 0; }
+</style>
+</head>
+<body class="w-full h-full m-0 overflow-hidden flex items-center justify-center bg-slate-100">
+<div class="w-full h-full max-w-[393px] max-h-[852px] bg-[#F4F8FF] flex flex-col overflow-hidden relative">
+<header class="shrink-0 px-4 pt-4 pb-2">
+<h1 class="text-[19px] font-bold text-slate-800">我的订单</h1>
+<p class="text-[11px] text-slate-400 mt-1">比价下单后可在各平台查看凭证，这里统一记录</p>
+</header>
+<main class="flex-1 min-h-0 overflow-y-auto overflow-x-hidden no-bar px-4 pb-4">
+<!-- 状态标签 -->
+<div class="flex items-center gap-2">
+<button class="order-tab h-8 px-4 rounded-full text-[12px] font-medium bg-sky-500 text-white" data-order-tab="all">全部</button>
+<button class="order-tab h-8 px-4 rounded-full text-[12px] font-medium bg-white text-slate-500 ring-1 ring-slate-100" data-order-tab="pending">待入住</button>
+<button class="order-tab h-8 px-4 rounded-full text-[12px] font-medium bg-white text-slate-500 ring-1 ring-slate-100" data-order-tab="done">已完成</button>
+<button class="order-tab h-8 px-4 rounded-full text-[12px] font-medium bg-white text-slate-500 ring-1 ring-slate-100" data-order-tab="cancel">已取消</button>
+</div>
+<div class="mt-3.5 space-y-3.5" id="orderList">
+<article class="order-card bg-white rounded-3xl p-4 ring-1 ring-slate-100 shadow-[0_16px_30px_-24px_rgba(56,140,255,0.9)]" data-status="pending">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="text-[10px] text-sky-600 bg-sky-50 px-2 py-0.5 rounded-full">待入住</span>
+<span class="text-[10px] text-slate-400">订单号 20261015083412</span>
+</div>
+<span class="text-[10px] text-orange-500 font-medium">已省 ¥84</span>
+</div>
+<div class="flex gap-3 mt-3">
+<div class="w-[68px] h-[68px] shrink-0 rounded-2xl overflow-hidden bg-gradient-to-br from-sky-100 to-cyan-50">
+<img alt="Riverside hotel room facing the Bund skyline" class="w-full h-full object-cover" src="https://modao.cc/agent-py/media/generated_images/2026-10-15/5d5cc26722b04c5193bff973e3425d18.jpg"/>
+</div>
+<div class="flex-1 min-w-0">
+<h3 class="text-[14px] font-bold text-slate-800 truncate">外滩璟悦江景酒店</h3>
+<p class="text-[11px] text-slate-400 mt-1">江景大床房 · 含双早 · 1 间</p>
+<p class="text-[11px] text-slate-400 mt-0.5">10月15日 入住 · 10月16日 退房 · 1 晚</p>
+</div>
+</div>
+<div class="mt-3 rounded-2xl bg-slate-50 p-3">
+<div class="flex items-center justify-between text-[11px]">
+<span class="text-slate-400">下单平台</span>
+<span class="text-slate-700 font-medium">美团酒店 · 比价最低</span>
+</div>
+<div class="flex items-center justify-between text-[11px] mt-1.5">
+<span class="text-slate-400">同房型其他平台</span>
+<span class="text-slate-500">携程 ¥458 / 飞猪 ¥469</span>
+</div>
+</div>
+<div class="flex items-center justify-between mt-3">
+<p class="text-[11px] text-slate-400">实付 <span class="text-orange-500 font-bold text-base">¥428</span></p>
+<div class="flex items-center gap-2">
+<button class="h-8 px-3 rounded-full text-[11px] font-medium text-slate-500 ring-1 ring-slate-200" onclick="showToast('已复制入住凭证')">查看凭证</button>
+<button class="h-8 px-3 rounded-full text-[11px] font-semibold text-white bg-gradient-to-r from-sky-400 to-cyan-400" onclick="showToast('免费取消已提交，退款 1-3 个工作日到账')">免费取消</button>
+</div>
+</div>
+</article>
+<article class="order-card bg-white rounded-3xl p-4 ring-1 ring-slate-100 shadow-[0_16px_30px_-24px_rgba(56,140,255,0.9)]" data-status="pending">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="text-[10px] text-sky-600 bg-sky-50 px-2 py-0.5 rounded-full">待入住</span>
+<span class="text-[10px] text-slate-400">订单号 20261014091207</span>
+</div>
+<span class="text-[10px] text-orange-500 font-medium">已省 ¥26</span>
+</div>
+<div class="flex gap-3 mt-3">
+<div class="w-[68px] h-[68px] shrink-0 rounded-2xl overflow-hidden bg-gradient-to-br from-cyan-100 to-sky-50">
+<img alt="Old lane house courtyard homestay near Tianzifang" class="w-full h-full object-cover" src="https://modao.cc/agent-py/media/generated_images/2026-10-15/6ef4846fe47f47698706311bcb833968.jpg"/>
+</div>
+<div class="flex-1 min-w-0">
+<h3 class="text-[14px] font-bold text-slate-800 truncate">田子坊里弄民宿</h3>
+<p class="text-[11px] text-slate-400 mt-1">独立庭院房 · 可做饭 · 1 间</p>
+<p class="text-[11px] text-slate-400 mt-0.5">10月17日 入住 · 10月19日 退房 · 2 晚</p>
+</div>
+</div>
+<div class="mt-3 rounded-2xl bg-slate-50 p-3">
+<div class="flex items-center justify-between text-[11px]">
+<span class="text-slate-400">下单平台</span>
+<span class="text-slate-700 font-medium">美团民宿 · 比价最低</span>
+</div>
+<div class="flex items-center justify-between text-[11px] mt-1.5">
+<span class="text-slate-400">同房型其他平台</span>
+<span class="text-slate-500">携程 ¥368 / 飞猪 ¥379</span>
+</div>
+</div>
+<div class="flex items-center justify-between mt-3">
+<p class="text-[11px] text-slate-400">实付 <span class="text-orange-500 font-bold text-base">¥704</span></p>
+<div class="flex items-center gap-2">
+<button class="h-8 px-3 rounded-full text-[11px] font-medium text-slate-500 ring-1 ring-slate-200" onclick="showToast('房东已确认，可提前 3 天联系接站')">联系房东</button>
+<button class="h-8 px-3 rounded-full text-[11px] font-semibold text-white bg-gradient-to-r from-sky-400 to-cyan-400" onclick="showToast('已发送入住提醒到你的手机')">入住提醒</button>
+</div>
+</div>
+</article>
+<article class="order-card bg-white rounded-3xl p-4 ring-1 ring-slate-100 shadow-[0_16px_30px_-24px_rgba(56,140,255,0.9)]" data-status="done">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="text-[10px] text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full">已完成</span>
+<span class="text-[10px] text-slate-400">订单号 20260928063155</span>
+</div>
+<span class="text-[10px] text-orange-500 font-medium">已省 ¥71</span>
+</div>
+<div class="flex gap-3 mt-3">
+<div class="w-[68px] h-[68px] shrink-0 rounded-2xl overflow-hidden bg-gradient-to-br from-cyan-100 to-sky-50">
+<img alt="Boutique hotel room with warm lighting near Jing an Temple" class="w-full h-full object-cover" src="https://modao.cc/agent-py/media/generated_images/2026-10-15/50c3f518694242bf94f3afd72202b952.jpg"/>
+</div>
+<div class="flex-1 min-w-0">
+<h3 class="text-[14px] font-bold text-slate-800 truncate">静安香颂精品酒店</h3>
+<p class="text-[11px] text-slate-400 mt-1">高级大床房 · 含早 · 1 间</p>
+<p class="text-[11px] text-slate-400 mt-0.5">9月28日 入住 · 9月29日 退房 · 1 晚</p>
+</div>
+</div>
+<div class="flex items-center justify-between mt-3">
+<p class="text-[11px] text-slate-400">实付 <span class="text-orange-500 font-bold text-base">¥318</span></p>
+<div class="flex items-center gap-2">
+<button class="h-8 px-3 rounded-full text-[11px] font-medium text-slate-500 ring-1 ring-slate-200" onclick="showToast('已提交评价，感谢反馈')">去评价</button>
+<button class="h-8 px-3 rounded-full text-[11px] font-semibold text-white bg-gradient-to-r from-sky-400 to-cyan-400" onclick="showToast('已为你重新比价，最低价 ¥328')">再次预订</button>
+</div>
+</div>
+</article>
+<article class="order-card bg-white rounded-3xl p-4 ring-1 ring-slate-100 shadow-[0_16px_30px_-24px_rgba(56,140,255,0.9)]" data-status="done">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="text-[10px] text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full">已完成</span>
+<span class="text-[10px] text-slate-400">订单号 20260912091824</span>
+</div>
+<span class="text-[10px] text-orange-500 font-medium">已省 ¥73</span>
+</div>
+<div class="flex gap-3 mt-3">
+<div class="w-[68px] h-[68px] shrink-0 rounded-2xl overflow-hidden bg-gradient-to-br from-sky-200 to-sky-50">
+<img alt="Executive hotel suite with Lujiazui tower view at dusk" class="w-full h-full object-cover" src="https://modao.cc/agent-py/media/generated_images/2026-10-15/8e3bdc120e1a40e999e48af53c0a209e.jpg"/>
+</div>
+<div class="flex-1 min-w-0">
+<h3 class="text-[14px] font-bold text-slate-800 truncate">陆家嘴云顶行政酒店</h3>
+<p class="text-[11px] text-slate-400 mt-1">行政楼层大床房 · 含双早 · 1 间</p>
+<p class="text-[11px] text-slate-400 mt-0.5">9月12日 入住 · 9月13日 退房 · 1 晚</p>
+</div>
+</div>
+<div class="flex items-center justify-between mt-3">
+<p class="text-[11px] text-slate-400">实付 <span class="text-orange-500 font-bold text-base">¥742</span></p>
+<div class="flex items-center gap-2">
+<button class="h-8 px-3 rounded-full text-[11px] font-medium text-slate-500 ring-1 ring-slate-200" onclick="showToast('电子发票已发送至邮箱')">开发票</button>
+<button class="h-8 px-3 rounded-full text-[11px] font-semibold text-white bg-gradient-to-r from-sky-400 to-cyan-400" onclick="showToast('已为你重新比价，最低价 ¥766')">再次预订</button>
+</div>
+</div>
+</article>
+<article class="order-card bg-white rounded-3xl p-4 ring-1 ring-slate-100 shadow-[0_16px_30px_-24px_rgba(56,140,255,0.9)]" data-status="cancel">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="text-[10px] text-slate-400 bg-slate-50 px-2 py-0.5 rounded-full">已取消</span>
+<span class="text-[10px] text-slate-400">订单号 20260905072210</span>
+</div>
+<span class="text-[10px] text-emerald-500 font-medium">已全额退款</span>
+</div>
+<div class="flex gap-3 mt-3 opacity-70">
+<div class="w-[68px] h-[68px] shrink-0 rounded-2xl overflow-hidden bg-gradient-to-br from-cyan-50 to-sky-50">
+<img alt="Waterfront courtyard homestay along the canal in an ancient town" class="w-full h-full object-cover" src="https://modao.cc/agent-py/media/generated_images/2026-10-15/ede62cccfb5a443792fd8f680ee0845e.jpg"/>
+</div>
+<div class="flex-1 min-w-0">
+<h3 class="text-[14px] font-bold text-slate-700 truncate">朱家角水岸小院民宿</h3>
+<p class="text-[11px] text-slate-400 mt-1">临水院落房 · 含早餐 · 1 间</p>
+<p class="text-[11px] text-slate-400 mt-0.5">9月5日 入住 · 9月6日 退房 · 1 晚</p>
+</div>
+</div>
+<div class="flex items-center justify-between mt-3">
+<p class="text-[11px] text-slate-400">原价 <span class="text-slate-500 font-semibold text-base line-through">¥498</span></p>
+<div class="flex items-center gap-2">
+<button class="h-8 px-3 rounded-full text-[11px] font-semibold text-white bg-gradient-to-r from-sky-400 to-cyan-400" onclick="showToast('已发起重新比价')">重新预订</button>
+</div>
+</div>
+</article>
+<div class="hidden text-center py-14" id="orderEmpty">
+<div class="w-16 h-16 rounded-full bg-white mx-auto flex items-center justify-center text-slate-300 ring-1 ring-slate-100">
+<iconify-icon class="text-3xl" icon="mdi:clipboard-text-outline"></iconify-icon>
+</div>
+<p class="mt-3 text-[13px] text-slate-500">该状态下还没有订单</p>
+<a class="inline-block mt-3 text-[12px] font-semibold text-white bg-gradient-to-r from-sky-400 to-cyan-400 px-5 py-2 rounded-full" href="home.html">去比价预订</a>
+</div>
+</div>
+</main>
+<nav class="shrink-0 bg-white border-t border-slate-100 px-2 pt-2 pb-3 grid grid-cols-4">
+<a class="flex flex-col items-center gap-0.5 text-slate-400" href="home.html">
+<iconify-icon class="text-xl" icon="mdi:home-variant-outline"></iconify-icon>
+<span class="text-[10px]">首页</span>
+</a>
+<a class="flex flex-col items-center gap-0.5 text-slate-400" href="favorites.html">
+<iconify-icon class="text-xl" icon="mdi:heart-outline"></iconify-icon>
+<span class="text-[10px]">比价收藏</span>
+</a>
+<a class="flex flex-col items-center gap-0.5 text-sky-500" href="orders.html">
+<iconify-icon class="text-xl" icon="mdi:clipboard-text"></iconify-icon>
+<span class="text-[10px] font-semibold">订单</span>
+</a>
+<a class="flex flex-col items-center gap-0.5 text-slate-400" href="profile.html">
+<iconify-icon class="text-xl" icon="mdi:account-outline"></iconify-icon>
+<span class="text-[10px]">我的</span>
+</a>
+</nav>
+<div class="hidden absolute left-1/2 -translate-x-1/2 bottom-28 z-40 bg-slate-800/90 text-white text-[12px] px-4 py-2 rounded-full whitespace-nowrap" id="toast"></div>
+</div>
+<script>
+  function showToast(text) {
+    var toast = document.getElementById("toast");
+    toast.textContent = text;
+    toast.classList.remove("hidden");
+    clearTimeout(showToast.timer);
+    showToast.timer = setTimeout(function () {
+      toast.classList.add("hidden");
+    }, 1700);
+  }
+
+  function bindOrderTabs() {
+    var tabs = document.querySelectorAll(".order-tab");
+    tabs.forEach(function (tab) {
+      tab.addEventListener("click", function () {
+        tabs.forEach(function (other) {
+          other.classList.remove("bg-sky-500", "text-white");
+          other.classList.add("bg-white", "text-slate-500", "ring-1", "ring-slate-100");
+        });
+        tab.classList.remove("bg-white", "text-slate-500", "ring-1", "ring-slate-100");
+        tab.classList.add("bg-sky-500", "text-white");
+        applyOrderFilter(tab.getAttribute("data-order-tab"));
+      });
+    });
+  }
+
+  function applyOrderFilter(key) {
+    var cards = document.querySelectorAll(".order-card");
+    var shown = 0;
+    cards.forEach(function (card) {
+      var match = key === "all" || card.getAttribute("data-status") === key;
+      card.classList.toggle("hidden", !match);
+      if (match) {
+        shown++;
+      }
+    });
+    document.getElementById("orderEmpty").classList.toggle("hidden", shown > 0);
+  }
+
+  bindOrderTabs();
+</script>
+</body>
+</html>
